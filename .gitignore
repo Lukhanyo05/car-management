@@ -1,0 +1,16 @@
+# Dependencies 
+node_modules/ 
+*/node_modules/ 
+ECHO is on.
+# Production builds 
+build/ 
+dist/ 
+*/build/ 
+*/dist/ 
+ECHO is on.
+# Environment variables 
+.env 
+.env.local 
+.env.development.local 
+.env.test.local 
+.env.production.local 
