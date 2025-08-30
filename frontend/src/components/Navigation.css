@@ -1,0 +1,248 @@
+/* 
+ * Navigation.css - Styles for the responsive navigation component
+ * Features a modern, sticky navbar with smooth transitions
+ */
+
+ :root {
+    --primary-color: #2c3e50;
+    --secondary-color: #e74c3c;
+    --accent-color: #3498db;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --white: #ffffff;
+    --gray-200: #e9ecef;
+    --gray-600: #6c757d;
+    --gray-800: #343a40;
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --border-radius-sm: 0.25rem;
+    --border-radius-lg: 0.5rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--spacing-lg);
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+    color: var(--white);
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+  }
+  
+  /* Brand styling */
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+  
+  .brand-icon {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+  }
+  
+  .brand-text {
+    background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Navigation links */
+  .nav-links {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-sm);
+    color: var(--light-color);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    border-radius: var(--border-radius-sm);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+  }
+  
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+    transition: all var(--transition-normal);
+    transform: translateX(-50%);
+  }
+  
+  .nav-link:hover {
+    color: var(--white);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-link:hover::before {
+    width: 100%;
+  }
+  
+  .nav-link.active {
+    color: var(--white);
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .nav-link.active::before {
+    width: 100%;
+  }
+  
+  .nav-icon {
+    font-size: 1.1rem;
+  }
+  
+  .nav-text {
+    white-space: nowrap;
+  }
+  
+  /* User section */
+  .nav-user {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+  }
+  
+  .user-avatar:hover {
+    transform: scale(1.1);
+  }
+  
+  .user-initials {
+    font-size: 0.9rem;
+  }
+  
+  /* Mobile menu toggle */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    transition: background-color var(--transition-fast);
+  }
+  
+  .menu-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .navbar {
+      height: 70px;
+      padding: 0 var(--spacing-md);
+    }
+    
+    .menu-toggle {
+      display: block;
+    }
+    
+    .nav-links {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+      flex-direction: column;
+      gap: 0;
+      padding: var(--spacing-md) 0;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all var(--transition-normal);
+    }
+    
+    .nav-links-active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .nav-item {
+      width: 100%;
+    }
+    
+    .nav-link {
+      padding: var(--spacing-lg) var(--spacing-xl);
+      justify-content: flex-start;
+      border-radius: 0;
+    }
+    
+    .nav-link::before {
+      display: none;
+    }
+    
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .brand-text {
+      font-size: 1.3rem;
+    }
+  }
+  
+  /* Animation for navbar on scroll */
+  .navbar-scrolled {
+    height: 70px;
+    background: rgba(44, 62, 80, 0.95);
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Accessibility improvements */
+  @media (prefers-reduced-motion: reduce) {
+    .navbar,
+    .nav-link,
+    .user-avatar {
+      transition: none;
+    }
+  }
+  

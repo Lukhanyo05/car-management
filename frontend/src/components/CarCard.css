@@ -1,0 +1,194 @@
+/* 
+ * CarCard.css - Styles for individual car cards
+ * Features a modern card design with hover effects
+ */
+
+.car-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.car-image {
+  height: 200px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.car-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.car-card:hover .car-image img {
+  transform: scale(1.05);
+}
+
+.image-placeholder {
+  color: #6c757d;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.car-details {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-details h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.car-details p {
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.car-details strong {
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.car-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.btn-edit,
+.btn-delete {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-edit {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+}
+
+.btn-edit:hover {
+  background: linear-gradient(135deg, #2980b9, #3498db);
+  transform: translateY(-1px);
+}
+
+.btn-delete {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+}
+
+.btn-delete:hover {
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
+  transform: translateY(-1px);
+}
+
+/* Loading skeleton */
+.car-card.loading .car-image {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+.car-card.loading .car-details h3,
+.car-card.loading .car-details p {
+  background: #f0f0f0;
+  border-radius: 4px;
+  height: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.car-card.loading .car-details h3 {
+  width: 70%;
+  height: 1.5rem;
+}
+
+.car-card.loading .car-actions button {
+  background: #f0f0f0;
+  border: none;
+  height: 2.5rem;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .car-image {
+    height: 160px;
+  }
+
+  .car-details {
+    padding: 1.25rem;
+  }
+
+  .car-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn-edit,
+  .btn-delete {
+    width: 100%;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .car-card {
+    border: 2px solid #2c3e50;
+  }
+
+  .car-card:hover {
+    border-color: #3498db;
+  }
+}
