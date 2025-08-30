@@ -1,41 +1,27 @@
 {
-  "name": "car-management-frontend",
+  "name": "car-management-fullstack",
   "version": "1.0.0",
-  "description": "A sleek React frontend for managing car inventory with Express backend",
-  "private": true,
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "react-router-dom": "^6.8.1",
-    "react-icons": "^4.7.1"
-  },
+  "description": "Full-stack Car Management System with React frontend and Express backend",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node backend/server.js",
+    "build": "cd frontend && npm ci && npm run build",
+    "heroku-postbuild": "npm run build",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm start"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "keywords": [
+    "react",
+    "express",
+    "fullstack",
+    "cars",
+    "management",
+    "hyperiondev"
+  ],
+  "author": "Lukhanyo",
+  "license": "MIT",
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=8.0.0"
+    "node": "16.x",
+    "npm": "8.x"
   }
 }

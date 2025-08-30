@@ -5,11 +5,10 @@
     "scripts": {
       "start": "node backend/server.js",
       "build": "cd frontend && npm install && npm run build",
-      "heroku-postbuild": "npm run build",
+      "heroku-postbuild": "cd frontend && npm install && npm run build",
       "dev": "concurrently \"npm run server\" \"npm run client\"",
       "server": "cd backend && npm run dev",
-      "client": "cd frontend && npm start",
-      "install-deps": "cd backend && npm install && cd ../frontend && npm install"
+      "client": "cd frontend && npm start"
     },
     "keywords": [
       "react",
