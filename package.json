@@ -1,0 +1,29 @@
+{
+    "name": "car-management-fullstack",
+    "version": "1.0.0",
+    "description": "Full-stack Car Management System with React frontend and Express backend",
+    "scripts": {
+      "start": "node backend/server.js",
+      "build": "cd frontend && npm install && npm run build",
+      "heroku-postbuild": "npm run build",
+      "dev": "concurrently \"npm run server\" \"npm run client\"",
+      "server": "cd backend && npm run dev",
+      "client": "cd frontend && npm start"
+    },
+    "keywords": [
+      "react",
+      "express",
+      "fullstack",
+      "cars",
+      "management"
+    ],
+    "author": "Lukhanyo",
+    "license": "MIT",
+    "engines": {
+      "node": "16.x",
+      "npm": "8.x"
+    },
+    "devDependencies": {
+      "concurrently": "^7.6.0"
+    }
+  }
